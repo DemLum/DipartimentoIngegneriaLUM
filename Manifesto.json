@@ -1,0 +1,20 @@
+{
+    "short_name": "Chat Dip",
+    "name": "Chatbot del Dipartimento di Ingegneria LUM",
+    "icons": [
+        {
+            "src": "icons/icon-192x192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "icons/icon-512x512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "start_url": "/index.html",
+    "display": "standalone",
+    "theme_color": "#2563eb",
+    "background_color": "#FFFFFF"
+}
