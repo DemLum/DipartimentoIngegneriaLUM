@@ -1,3 +1,27 @@
+/* Regole base per mobile */
+@media (max-width: 600px) {
+    .botpress-webchat {
+        width: 100%; /* Utilizza l'intera larghezza dello schermo */
+        height: 400px; /* Altezza fissa per la chat */
+    }
+
+    .botpress-webchat .message {
+        font-size: 14px; /* Dimensione del testo ridotta per dispositivi mobili */
+    }
+}
+
+/* Regole per tablet */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .botpress-webchat {
+        width: 80%; /* Larghezza moderata per tablet */
+        height: 500px; /* Altezza maggiore per la chat */
+    }
+
+    .botpress-webchat .message {
+        font-size: 16px; /* Dimensione del testo leggermente maggiore per tablet */
+    }
+}
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
