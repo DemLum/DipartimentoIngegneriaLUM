@@ -43,26 +43,27 @@
   }, 1000); // Aspetta 1 secondo prima di aprire la chat
 </script>
 
-/* Regole base per mobile */
-@media (max-width: 600px) {
+<style>
+  /* Regole per dispositivi con schermi fino a 600px */
+  @media (max-width: 600px) {
     .botpress-webchat {
         width: 100%; /* Utilizza l'intera larghezza dello schermo */
-        height: 400px; /* Altezza fissa per la chat */
+        height: 50vh; /* Altezza basata sulla vista dello schermo, 50% dell'altezza della viewport */
+        font-size: 14px; /* Font ridotto per spazi più piccoli */
     }
+  }
 
-    .botpress-webchat .message {
-        font-size: 14px; /* Dimensione del testo ridotta per dispositivi mobili */
-    }
-}
-
-/* Regole per tablet */
-@media (min-width: 601px) and (max-width: 1024px) {
+  /* Regole per dispositivi con schermi tra 601px e 1024px */
+  @media (min-width: 601px) and (max-width: 1024px) {
     .botpress-webchat {
-        width: 80%; /* Larghezza moderata per tablet */
-        height: 500px; /* Altezza maggiore per la chat */
+        width: 80%; /* Leggermente più piccolo su tablet */
+        height: 60vh; /* Maggiore altezza per tablet */
+        font-size: 16px; /* Dimensione del testo adeguata per tablet */
     }
+  }
 
-    .botpress-webchat .message {
-        font-size: 16px; /* Dimensione del testo leggermente maggiore per tablet */
-    }
-}
+  /* Aggiustamenti per componenti specifici se necessario */
+  .botpress-webchat .chat-input {
+    padding: 10px; /* Maggiore spazio per input */
+  }
+</style>
