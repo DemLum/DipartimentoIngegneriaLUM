@@ -5,6 +5,25 @@
     <title>Chatbot Dipartimento</title>
     <link rel="manifest" href="/manifest.json">
 <head>
+<body>
+    <h1>Benvenuto nella mia PWA!</h1>
+    
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+                // Registrazione riuscita
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }, function(err) {
+                // Registrazione fallita :(
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+    }
+    </script>
+</body>
+</html>
+<head>
     <meta charset="UTF-8">
     <title>Chatbot Dipartimento</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
