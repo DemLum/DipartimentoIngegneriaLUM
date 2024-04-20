@@ -10,7 +10,7 @@
     </style>
 </head>
 <body>
-    <h1>Benvenuto nel Dipartimento di Ingegneria LUM</h1>
+    <h1>Benvenuto al Dipartimento di Ingegneria LUM</h1>
     <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
     <script>
       window.botpressWebChat.init({
@@ -30,17 +30,16 @@
           "useSessionStorage": true,
           "showBotInfoPage": true,
           "theme": "prism",
-          "themeColor": "#2563eb" 
-          "autoOpen": true 
+          "themeColor": "#2563eb",
+          "autoOpen": false  // Set this to false or remove it if using the timeout function below
       });
+
+      // Open the chat window automatically after 1 second to ensure everything is loaded
+      setTimeout(function() {
+          window.botpressWebChat.sendEvent({
+              type: 'show'
+          });
+      }, 1000); // Wait 1 second before opening the chat
     </script>
 </body>
 </html>
-
-  
-  setTimeout(function() { /*Funzione per aprire la chat dopo un breve ritardo per assicurarsi che sia stata completamente caricata*/ 
-    window.botpressWebChat.sendEvent({
-      type: 'show'
-    });
-  }, 1000); // Aspetta 1 secondo prima di aprire la chat
-</script>
