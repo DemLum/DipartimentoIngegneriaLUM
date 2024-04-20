@@ -29,6 +29,20 @@
     "autoOpen": true  // Aggiunta dell'opzione autoOpen per aprire automaticamente la chat
   });
 </script>
+<script>
+  window.botpressWebChat.init({
+    // Le tue configurazioni esistenti...
+    "themeColor": "#2563eb"
+  });
+
+  // Funzione per aprire la chat dopo un breve ritardo per assicurarsi che sia stata completamente caricata
+  setTimeout(function() {
+    window.botpressWebChat.sendEvent({
+      type: 'show'
+    });
+  }, 1000); // Aspetta 1 secondo prima di aprire la chat
+</script>
+
 /* Regole base per mobile */
 @media (max-width: 600px) {
     .botpress-webchat {
