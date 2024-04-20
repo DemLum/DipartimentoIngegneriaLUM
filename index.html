@@ -3,67 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <title>Chatbot Dipartimento</title>
+    <style>
+      body {
+          background-color: #ccffcc; /* Un verde chiaro piacevole */
+      }
+
+      /* Regole per dispositivi con schermi fino a 600px */
+      @media (max-width: 600px) {
+        .botpress-webchat {
+            width: 100%; /* Utilizza l'intera larghezza dello schermo */
+            height: 50vh; /* Altezza basata sulla vista dello schermo, 50% dell'altezza della viewport */
+            font-size: 14px; /* Font ridotto per spazi più piccoli */
+        }
+      }
+
+      /* Regole per dispositivi con schermi tra 601px e 1024px */
+      @media (min-width: 601px) and (max-width: 1024px) {
+        .botpress-webchat {
+            width: 80%; /* Leggermente più piccolo su tablet */
+            height: 60vh; /* Maggiore altezza per tablet */
+            font-size: 16px; /* Dimensione del testo adeguata per tablet */
+        }
+      }
+
+      /* Aggiustamenti per componenti specifici se necessario */
+      .botpress-webchat .chat-input {
+        padding: 10px; /* Maggiore spazio per input */
+      }
+    </style>
 </head>
 <body>
     <h1>Benvenuto al Dipartimento di Ingegnaria LUM</h1>
     <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
-<script>
-  window.botpressWebChat.init({
-      "composerPlaceholder": "Benvenuto",
-      "botConversationDescription": "Informazioni utili al dipartimento",
-      "botId": "1ad0a5f4-0aa0-4c5c-a737-910f3819a292",
-      "hostUrl": "https://cdn.botpress.cloud/webchat/v1",
-      "messagingUrl": "https://messaging.botpress.cloud",
-      "clientId": "1ad0a5f4-0aa0-4c5c-a737-910f3819a292",
-      "webhookId": "81d56fb9-262d-4131-9169-215e5beef7a9",
-      "lazySocket": true,
-      "themeName": "prism",
-      "botName": "Dipartimento di Ingegnaria LUM",
-      "avatarUrl": "https://avatar.iran.liara.run/public/boy?username=Ash",
-      "stylesheet": "https://webchat-styler-css.botpress.app/prod/7863beb1-de81-4e80-b45c-9d3377a13893/v10397/style.css",
-      "frontendVersion": "v1",
-      "useSessionStorage": true,
-      "showBotInfoPage": true,
-      "theme": "prism",
-      "themeColor": "#2563eb"
-    "autoOpen": true  // Aggiunta dell'opzione autoOpen per aprire automaticamente la chat
-  });
-</script>
-<script>
-  window.botpressWebChat.init({
-    // Le tue configurazioni esistenti...
-    "themeColor": "#2563eb"
-  });
-
-  // Funzione per aprire la chat dopo un breve ritardo per assicurarsi che sia stata completamente caricata
-  setTimeout(function() {
-    window.botpressWebChat.sendEvent({
-      type: 'show'
-    });
-  }, 1000); // Aspetta 1 secondo prima di aprire la chat
-</script>
-
-<style>
-  /* Regole per dispositivi con schermi fino a 600px */
-  @media (max-width: 600px) {
-    .botpress-webchat {
-        width: 100%; /* Utilizza l'intera larghezza dello schermo */
-        height: 50vh; /* Altezza basata sulla vista dello schermo, 50% dell'altezza della viewport */
-        font-size: 14px; /* Font ridotto per spazi più piccoli */
-    }
-  }
-
-  /* Regole per dispositivi con schermi tra 601px e 1024px */
-  @media (min-width: 601px) and (max-width: 1024px) {
-    .botpress-webchat {
-        width: 80%; /* Leggermente più piccolo su tablet */
-        height: 60vh; /* Maggiore altezza per tablet */
-        font-size: 16px; /* Dimensione del testo adeguata per tablet */
-    }
-  }
-
-  /* Aggiustamenti per componenti specifici se necessario */
-  .botpress-webchat .chat-input {
-    padding: 10px; /* Maggiore spazio per input */
-  }
-</style>
+    <script>
+      window.botpressWebChat.init({
+          "composerPlaceholder": "Benvenuto",
+          "botConversationDescription": "Informazioni utili al dipartimento",
+          "botId": "1ad0a5f4-0aa0-4c5c-a737-910f3819a292",
+          "hostUrl": "https://cdn.botpress.cloud/webchat/v1",
+          "messagingUrl": "https://messaging.botpress.cloud",
+          "clientId": "1ad0a5f4-0aa0-4c5c-a737-910f3819a292",
+          "webhookId": "81d56fb9-262d-4131-9169-215e5beef7a9",
+          "lazySocket": true,
+          "themeName": "prism",
+          "botName": "Dipartimento di Ingegnaria LUM",
+          "avatarUrl": "https://avatar.iran.liara.run/public/boy?username=Ash",
+          "stylesheet": "https://webchat-styler-css.botpress.app/prod/7863beb1-de81-4e80-b45c-9d3377a13893/v10397/style.css",
+          "frontendVersion": "v1",
+          "useSessionStorage": true,
+          "showBotInfoPage": true,
+          "theme": "prism",
+          "themeColor": "#2563eb",
+          "autoOpen": true  // Aggiunta dell'opzione autoOpen per aprire automaticamente la chat
+      });
+    </script>
+</body>
+</html>
