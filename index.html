@@ -31,13 +31,14 @@
           "showBotInfoPage": true,
           "theme": "prism",
           "themeColor": "#2563eb" 
+          "autoOpen": true 
       });
     </script>
 </body>
 </html>
 
-  // Funzione per aprire la chat dopo un breve ritardo per assicurarsi che sia stata completamente caricata
-  setTimeout(function() {
+  
+  setTimeout(function() { /*Funzione per aprire la chat dopo un breve ritardo per assicurarsi che sia stata completamente caricata*/ 
     window.botpressWebChat.sendEvent({
       type: 'show'
     });
