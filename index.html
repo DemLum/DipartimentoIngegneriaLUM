@@ -6,7 +6,7 @@
     <link rel="manifest" href="/manifest.json">
 <head>
 <body>
-    <h1>Benvenuto nella mia PWA!</h1>
+    <h1>Clicca sull'icona "CONDIVIDI" e sul "+ aggiungi schermata home"!</h1>
     
     <script>
     if ('serviceWorker' in navigator) {
@@ -23,6 +23,32 @@
     </script>
 </body>
 </html>
+<button id="installBtn" style="display:none;">Installa App</button>
+<script>
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    // Previene il mini-infobar predefinito di Chrome
+    e.preventDefault();
+    deferredPrompt = e;
+    // Mostra il pulsante di installazione
+    document.getElementById('installBtn').style.display = 'block';
+
+    document.getElementById('installBtn').addEventListener('click', (e) => {
+        // Mostra il prompt di installazione
+        deferredPrompt.prompt();
+        // Aspetta che l'utente risponda al prompt
+        deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+                console.log('Utente ha accettato l\'installazione');
+            } else {
+                console.log('Utente ha rifiutato l\'installazione');
+            }
+            deferredPrompt = null;
+        });
+    });
+});
+</script>
 <head>
     <meta charset="UTF-8">
     <title>Chatbot Dipartimento</title>
