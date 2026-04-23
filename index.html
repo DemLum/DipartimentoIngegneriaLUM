@@ -3,57 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Website</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to right, #6a11cb, #2575fc);
-            color: #fff;
+    <meta name="description" content="Modern Professional Website with Botpress Integration">
+    <link rel="stylesheet" href="styles.css">
+    <title>Professional Website</title>
+    <link rel="manifest" href="manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/service-worker.js').then(function(reg) {
+                    console.log('Service Worker registered');
+                }).catch(function(error) {
+                    console.error('Service Worker registration failed:', error);
+                });
+            });
         }
-        header {
-            background: #333;
-            padding: 20px;
-            text-align: center;
-        }
-        .card {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            margin: 15px;
-            padding: 20px;
-            transition: transform 0.2s;
-        }
-        .card:hover {
-            transform: scale(1.05);
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+    </script>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Our Modern Website</h1>
+    <header class="hero">
+        <h1>Welcome to Our Professional Service</h1>
+        <p>Your satisfaction is our priority.</p>
+        <button id="chat-button">Chat with us!</button>
     </header>
-    <div class="card">
-        <h2>Feature 1</h2>
-        <p>Description of feature 1...</p>
+    <section class="services">
+        <div class="service-card">
+            <h2>Service 1</h2>
+            <p>Description of Service 1.</p>
+        </div>
+        <div class="service-card">
+            <h2>Service 2</h2>
+            <p>Description of Service 2.</p>
+        </div>
+        <div class="service-card">
+            <h2>Service 3</h2>
+            <p>Description of Service 3.</p>
+        </div>
+    </section>
+    <div id="info-boxes">
+        <div class="info-box">
+            <h3>Info Box 1</h3>
+            <p>Details about Info Box 1.</p>
+        </div>
+        <div class="info-box">
+            <h3>Info Box 2</h3>
+            <p>Details about Info Box 2.</p>
+        </div>
     </div>
-    <div class="card">
-        <h2>Feature 2</h2>
-        <p>Description of feature 2...</p>
-    </div>
-    <footer>
-        <p>&copy; 2026 Modern Website. All rights reserved.</p>
-    </footer>
     <script>
-        // Botpress chatbot configuration
-        window.botpressChatbox && window.botpressChatbox.init();
+        const botpressWebChat = document.createElement('script');
+        botpressWebChat.src = 'https://cdn.botpress.cloud/webchat/v0/inject.js';
+        botpressWebChat.onload = function() {
+            window.botpressWebChat.init({
+                botId: 'your-bot-id', // replace with your actual botId
+                webhook: 'your-webhook-endpoint', // replace with your actual webhookId
+            });
+        };
+        document.body.appendChild(botpressWebChat);
     </script>
 </body>
 </html>
