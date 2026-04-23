@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Dipartimento di Ingegneria – Università LUM: corsi, ricerca e assistente virtuale.">
+  <meta name="description" content="Dipartimento di Ingegneria – Università Giuseppe Degennaro: corsi, ricerca e assistente virtuale.">
   <title>Dipartimento di Ingegneria – LUM</title>
   <link rel="manifest" href="Manifesto.json">
   <link rel="icon" href="icon-192x192.png">
@@ -27,7 +27,7 @@
         <img src="icon-192x192.png" alt="LUM Logo" class="nav-logo">
         <div class="nav-name">
           Ingegneria LUM
-          <span>Università LUM Jean Monnet</span>
+          <span>Università Giuseppe Degennaro</span>
         </div>
       </a>
       <ul class="nav-links">
@@ -43,7 +43,7 @@
   <section class="hero" id="chi-siamo">
     <div class="hero-inner">
       <div class="hero-content">
-        <span class="section-badge">Università LUM</span>
+        <span class="section-badge">Università Giuseppe Degennaro</span>
         <h1>Dipartimento di<br><span class="hero-highlight">Ingegneria</span></h1>
         <p>Formiamo gli ingegneri del futuro attraverso ricerca d'eccellenza,
            innovazione tecnologica e una didattica di qualità riconosciuta a livello nazionale.</p>
@@ -284,7 +284,7 @@
             <img src="icon-192x192.png" alt="LUM Logo" class="footer-logo">
             <div>
               <div class="footer-brand-name">Dipartimento di Ingegneria</div>
-              <div class="footer-brand-sub">Università LUM Jean Monnet</div>
+              <div class="footer-brand-sub">Università Giuseppe Degennaro</div>
             </div>
           </div>
           <p class="footer-desc">
@@ -314,8 +314,8 @@
       </div>
 
       <div class="footer-bottom">
-        <span>© 2024 Università LUM – Dipartimento di Ingegneria. Tutti i diritti riservati.</span>
-        <span class="footer-badge">🌿 Powered by LUM</span>
+        <span>© 2026 Università Giuseppe Degennaro – Dipartimento di Ingegneria. Tutti i diritti riservati.</span>
+        <span class="footer-badge">🌿 Powered by Demetrio Alessandro Trunfio</span>
       </div>
     </div>
   </footer>
@@ -323,14 +323,26 @@
   <!-- ── Botpress Webchat (embedded inline) ─────────────── -->
   <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
   <script>
+    // Configura e inietta Botpress *prima* che il file config personalizzato faccia la sua chiamata
+    window.addEventListener('load', function() {
+        if (window.botpressWebChat) {
+            window.botpressWebChat.onEvent(function (event) {
+                if (event.type === 'LIFECYCLE.LOADED') {
+                    window.botpressWebChat.sendEvent({ type: 'show' });
+                }
+            }, ['LIFECYCLE.LOADED']);
+        }
+    });
+
     (function () {
       if (window.botpressWebChat && typeof window.botpressWebChat.init === 'function') {
         var _origInit = window.botpressWebChat.init.bind(window.botpressWebChat);
         window.botpressWebChat.init = function (config) {
           config = config || {};
-          // Inject container details to render inline instead of floating
-          config.container = document.getElementById('webchat');
-          config.hideWidget = true; // Hides the floating button
+          // Assicuriamoci di passare i selettori giusti per renderlo embed
+          config.container = "#webchat";
+          config.hideWidget = true; 
+          config.disableAnimations = true;
           return _origInit(config);
         };
       }
