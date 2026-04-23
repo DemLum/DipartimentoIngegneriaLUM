@@ -321,34 +321,24 @@
   </footer>
 
   <!-- ── Botpress Webchat (embedded inline) ─────────────── -->
+  
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dipartimento di Ingegneria</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Botpress embed code -->
   <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
-  <script>
-    // Configura e inietta Botpress *prima* che il file config personalizzato faccia la sua chiamata
-    window.addEventListener('load', function() {
-        if (window.botpressWebChat) {
-            window.botpressWebChat.onEvent(function (event) {
-                if (event.type === 'LIFECYCLE.LOADED') {
-                    window.botpressWebChat.sendEvent({ type: 'show' });
-                }
-            }, ['LIFECYCLE.LOADED']);
-        }
-    });
-
-    (function () {
-      if (window.botpressWebChat && typeof window.botpressWebChat.init === 'function') {
-        var _origInit = window.botpressWebChat.init.bind(window.botpressWebChat);
-        window.botpressWebChat.init = function (config) {
-          config = config || {};
-          // Assicuriamoci di passare i selettori giusti per renderlo embed
-          config.container = "#webchat";
-          config.hideWidget = true; 
-          config.disableAnimations = true;
-          return _origInit(config);
-        };
-      }
-    })();
-  </script>
-  <script src="https://files.bpcontent.cloud/2024/11/07/09/20241107093152-C7HG1MHH.js"></script>
-
+  <script src="https://files.bpcontent.cloud/2024/11/07/09/20241107093152-C7HG1MHH.js" defer></script>
+</head>
+<body>
+  <!-- contenuto pagina -->
+  <div id="bp-embedded-webchat" style="height:500px;width:100%;"></div>
+</body>
+</html>
 </body>
 </html>
