@@ -143,7 +143,7 @@
           </div>
         </div>
         <!-- Botpress webchat renders here -->
-        <div id="webchat"></div>
+        <div id="webchat" style="height: 500px; width: 100%;"></div>
       </div>
     </div>
   </section>
@@ -321,25 +321,16 @@
   </footer>
 
   <!-- ── Botpress Webchat (embedded inline) ─────────────── -->
-  <!--
-    1. Load the Botpress inject script first (synchronous).
-    2. Before the bot config script runs, intercept window.botpress.init
-       and inject the `container` property so the webchat renders
-       inside #webchat instead of as a floating widget.
-    3. Load the bot-specific configuration script (without defer so
-       the init call fires while our intercept is still in place).
-  -->
   <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
   <script>
     (function () {
-      if (window.botpress && typeof window.botpress.init === 'function') {
-        var _origInit = window.botpress.init.bind(window.botpress);
-        window.botpress.init = function (config) {
+      if (window.botpressWebChat && typeof window.botpressWebChat.init === 'function') {
+        var _origInit = window.botpressWebChat.init.bind(window.botpressWebChat);
+        window.botpressWebChat.init = function (config) {
           config = config || {};
-          var container = document.getElementById('webchat');
-          if (container) {
-            config.container = container;
-          }
+          // Inject container details to render inline instead of floating
+          config.container = document.getElementById('webchat');
+          config.hideWidget = true; // Hides the floating button
           return _origInit(config);
         };
       }
