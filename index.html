@@ -1,55 +1,351 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Modern Professional Website with Botpress Integration">
-    <link rel="stylesheet" href="styles.css">
-    <title>Professional Website</title>
-    <link rel="manifest" href="manifest.json">
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/service-worker.js').then(function(reg) {
-                    console.log('Service Worker registered');
-                }).catch(function(error) {
-                    console.error('Service Worker registration failed:', error);
-                });
-            });
-        }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dipartimento di Ingegneria – Università LUM: corsi, ricerca e assistente virtuale.">
+  <title>Dipartimento di Ingegneria – LUM</title>
+  <link rel="manifest" href="Manifesto.json">
+  <link rel="icon" href="icon-192x192.png">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('/service%20worker.js')
+          .then(function () { console.log('Service Worker registered'); })
+          .catch(function (e) { console.warn('Service Worker registration failed:', e); });
+      });
+    }
+  </script>
 </head>
 <body>
-    <header class="hero">
-        <h1>Welcome to Our Professional Service</h1>
-        <p>Your satisfaction is our priority.</p>
-        <button id="chat-button">Chat with us!</button>
-    </header>
-    <section class="services">
-        <div class="service-card">
-            <h2>Service 1</h2>
-            <p>Description of Service 1.</p>
+
+  <!-- ── Navigation ─────────────────────────────────────── -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-brand">
+        <img src="icon-192x192.png" alt="LUM Logo" class="nav-logo">
+        <div class="nav-name">
+          Ingegneria LUM
+          <span>Università LUM Jean Monnet</span>
         </div>
-        <div class="service-card">
-            <h2>Service 2</h2>
-            <p>Description of Service 2.</p>
-        </div>
-        <div class="service-card">
-            <h2>Service 3</h2>
-            <p>Description of Service 3.</p>
-        </div>
-    </section>
-    <div id="info-boxes">
-        <div class="info-box">
-            <h3>Info Box 1</h3>
-            <p>Details about Info Box 1.</p>
-        </div>
-        <div class="info-box">
-            <h3>Info Box 2</h3>
-            <p>Details about Info Box 2.</p>
-        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#chi-siamo">Chi Siamo</a></li>
+        <li><a href="#corsi">Corsi</a></li>
+        <li><a href="#ricerca">Ricerca</a></li>
+        <li><a href="#assistente" class="nav-cta">Assistente Virtuale</a></li>
+      </ul>
     </div>
-    <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
-    <script src="https://files.bpcontent.cloud/2024/11/07/09/20241107093152-C7HG1MHH.js" defer></script>
+  </nav>
+
+  <!-- ── Hero ───────────────────────────────────────────── -->
+  <section class="hero" id="chi-siamo">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <span class="section-badge">Università LUM</span>
+        <h1>Dipartimento di<br><span class="hero-highlight">Ingegneria</span></h1>
+        <p>Formiamo gli ingegneri del futuro attraverso ricerca d'eccellenza,
+           innovazione tecnologica e una didattica di qualità riconosciuta a livello nazionale.</p>
+        <div class="hero-buttons">
+          <a href="#assistente" class="btn btn-primary">💬 Chatta con noi</a>
+          <a href="#corsi" class="btn btn-secondary">Scopri i Corsi</a>
+        </div>
+        <div class="hero-counters">
+          <div class="hero-counter">
+            <strong>500+</strong>
+            <span>Studenti</span>
+          </div>
+          <div class="hero-counter">
+            <strong>50+</strong>
+            <span>Docenti</span>
+          </div>
+          <div class="hero-counter">
+            <strong>20+</strong>
+            <span>Anni di eccellenza</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="hero-card-icon">🎓</div>
+          <div>
+            <h4>Laurea Triennale</h4>
+            <p>Ingegneria dell'Informazione</p>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-icon">🔬</div>
+          <div>
+            <h4>Ricerca Avanzata</h4>
+            <p>Laboratori e progetti europei</p>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-icon">🌍</div>
+          <div>
+            <h4>Programma Erasmus+</h4>
+            <p>Università partner in tutta Europa</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Chat Section ───────────────────────────────────── -->
+  <section class="chat-section" id="assistente">
+    <div class="chat-grid">
+      <div class="chat-info">
+        <span class="section-badge">Assistente Virtuale</span>
+        <h2>Il tuo assistente<br>sempre disponibile</h2>
+        <p>Il nostro assistente virtuale risponde 24 ore su 24, 7 giorni su 7
+           a tutte le tue domande sul dipartimento: corsi, iscrizioni, calendario,
+           contatti e molto altro.</p>
+        <ul class="check-list">
+          <li>
+            <span class="check-icon">✓</span>
+            Informazioni sui corsi di laurea
+          </li>
+          <li>
+            <span class="check-icon">✓</span>
+            Procedura di immatricolazione
+          </li>
+          <li>
+            <span class="check-icon">✓</span>
+            Calendario esami e lezioni
+          </li>
+          <li>
+            <span class="check-icon">✓</span>
+            Contatti e uffici del dipartimento
+          </li>
+          <li>
+            <span class="check-icon">✓</span>
+            Opportunità di stage e tirocinio
+          </li>
+        </ul>
+        <a href="#corsi" class="btn btn-green">Scopri i Corsi →</a>
+      </div>
+
+      <div class="webchat-card">
+        <!-- Branded header -->
+        <div class="webchat-header">
+          <div class="webchat-identity">
+            <div class="webchat-avatar">🤖</div>
+            <div>
+              <h4>Assistente LUM</h4>
+              <span>Dipartimento di Ingegneria</span>
+            </div>
+          </div>
+          <div class="status-indicator">
+            <span class="status-dot"></span>
+            Online
+          </div>
+        </div>
+        <!-- Botpress webchat renders here -->
+        <div id="webchat"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Features Section ───────────────────────────────── -->
+  <section class="features-section" id="corsi">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Cosa Offriamo</span>
+        <h2>Eccellenza nella Formazione</h2>
+        <p>Programmi accademici di alto livello, laboratori all'avanguardia
+           e un corpo docenti di eccellenza internazionale.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🔬</div>
+          <h3>Ricerca Avanzata</h3>
+          <p>Laboratori di ricerca all'avanguardia con progetti finanziati
+             a livello nazionale ed europeo.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💡</div>
+          <h3>Innovazione</h3>
+          <p>Approccio didattico innovativo con tecnologie digitali
+             e metodologie moderne orientate al mercato.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌍</div>
+          <h3>Internazionalizzazione</h3>
+          <p>Programmi Erasmus+ e accordi con università partner
+             in tutta Europa e nel mondo.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🤝</div>
+          <h3>Imprese Partner</h3>
+          <p>Forti legami con il territorio e le imprese per stage,
+             tirocini e opportunità di lavoro concrete.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📚</div>
+          <h3>Corsi di Laurea</h3>
+          <p>Triennali, magistrali e dottorati di ricerca in diverse
+             discipline dell'ingegneria moderna.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🏆</div>
+          <h3>Riconoscimenti</h3>
+          <p>Accreditamenti internazionali e premi per la qualità
+             dell'offerta formativa e della ricerca.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Stats Bar ──────────────────────────────────────── -->
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div>
+        <div class="stat-number">500+</div>
+        <div class="stat-label">Studenti iscritti</div>
+      </div>
+      <div>
+        <div class="stat-number">50+</div>
+        <div class="stat-label">Docenti e ricercatori</div>
+      </div>
+      <div>
+        <div class="stat-number">30+</div>
+        <div class="stat-label">Progetti di ricerca attivi</div>
+      </div>
+      <div>
+        <div class="stat-number">20+</div>
+        <div class="stat-label">Anni di eccellenza</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Research Section ───────────────────────────────── -->
+  <section class="research-section" id="ricerca">
+    <div class="research-grid">
+      <div class="research-content">
+        <span class="section-badge section-badge-dark">Ricerca e Sviluppo</span>
+        <h2>Pionieri dell'innovazione ingegneristica</h2>
+        <p>Il nostro dipartimento affronta le sfide tecnologiche del futuro:
+           dalla sostenibilità all'intelligenza artificiale, dalle smart city
+           alle energie rinnovabili.</p>
+        <div class="tag-cloud">
+          <span class="tag">Intelligenza Artificiale</span>
+          <span class="tag">Ingegneria Civile</span>
+          <span class="tag">Sostenibilità</span>
+          <span class="tag">IoT</span>
+          <span class="tag">Automazione</span>
+          <span class="tag">Smart Cities</span>
+          <span class="tag">Machine Learning</span>
+          <span class="tag">Energie Rinnovabili</span>
+        </div>
+        <a href="#assistente" class="btn btn-primary">Scopri di più</a>
+      </div>
+
+      <div class="research-cards">
+        <div class="research-card">
+          <div class="research-card-icon">🤖</div>
+          <div>
+            <h4>Intelligenza Artificiale</h4>
+            <p>Ricerca applicata in Machine Learning e AI</p>
+          </div>
+        </div>
+        <div class="research-card">
+          <div class="research-card-icon">⚡</div>
+          <div>
+            <h4>Energie Rinnovabili</h4>
+            <p>Soluzioni innovative per un futuro sostenibile</p>
+          </div>
+        </div>
+        <div class="research-card">
+          <div class="research-card-icon">🏗️</div>
+          <div>
+            <h4>Ingegneria Civile</h4>
+            <p>Infrastrutture e urbanistica moderna</p>
+          </div>
+        </div>
+        <div class="research-card">
+          <div class="research-card-icon">📡</div>
+          <div>
+            <h4>Internet of Things</h4>
+            <p>Sistemi connessi e smart environment</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-area">
+            <img src="icon-192x192.png" alt="LUM Logo" class="footer-logo">
+            <div>
+              <div class="footer-brand-name">Dipartimento di Ingegneria</div>
+              <div class="footer-brand-sub">Università LUM Jean Monnet</div>
+            </div>
+          </div>
+          <p class="footer-desc">
+            Formiamo ingegneri pronti ad affrontare le sfide del mondo moderno
+            attraverso ricerca, innovazione e didattica di qualità.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Dipartimento</h4>
+          <ul>
+            <li><a href="#chi-siamo">Chi Siamo</a></li>
+            <li><a href="#corsi">Corsi di Laurea</a></li>
+            <li><a href="#ricerca">Ricerca</a></li>
+            <li><a href="#assistente">Assistente Virtuale</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contatti</h4>
+          <ul>
+            <li>Casamassima (BA)</li>
+            <li>Puglia, Italia</li>
+            <li><a href="#assistente">Scrivici tramite il bot →</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2024 Università LUM – Dipartimento di Ingegneria. Tutti i diritti riservati.</span>
+        <span class="footer-badge">🌿 Powered by LUM</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── Botpress Webchat (embedded inline) ─────────────── -->
+  <!--
+    1. Load the Botpress inject script first (synchronous).
+    2. Before the bot config script runs, intercept window.botpress.init
+       and inject the `container` property so the webchat renders
+       inside #webchat instead of as a floating widget.
+    3. Load the bot-specific configuration script (without defer so
+       the init call fires while our intercept is still in place).
+  -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
+  <script>
+    (function () {
+      if (window.botpress && typeof window.botpress.init === 'function') {
+        var _origInit = window.botpress.init.bind(window.botpress);
+        window.botpress.init = function (config) {
+          config = config || {};
+          var container = document.getElementById('webchat');
+          if (container) {
+            config.container = container;
+          }
+          return _origInit(config);
+        };
+      }
+    })();
+  </script>
+  <script src="https://files.bpcontent.cloud/2024/11/07/09/20241107093152-C7HG1MHH.js"></script>
+
 </body>
 </html>
