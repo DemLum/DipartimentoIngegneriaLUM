@@ -39,7 +39,7 @@
     </div>
   </nav>
 
-  <!-- ── Hero ───────────────────────────────────────────── -->
+  <!-- ── Hero ───────────────────────────────���───────────── -->
   <section class="hero" id="chi-siamo">
     <div class="hero-inner">
       <div class="hero-content">
@@ -143,7 +143,7 @@
           </div>
         </div>
         <!-- Botpress webchat renders here -->
-        <div id="bp-webchat" style="height: 500px; width: 100%; border-radius: 12px; overflow: hidden; position: relative;"></div>
+        <div id="bp-embedded-webchat" style="height: 500px; width: 100%; border-radius: 12px; overflow: hidden; position: relative;"></div>
       </div>
     </div>
   </section>
@@ -325,7 +325,7 @@
   <script>
     window.botpressWebChat.init({
       configUrl: "https://files.bpcontent.cloud/2024/11/07/09/20241107093152-5L9JMNFR.json",
-      container: "#bp-webchat",
+      container: document.getElementById("bp-embedded-webchat"),
       hideWidget: true,
       disableAnimations: true,
     });
