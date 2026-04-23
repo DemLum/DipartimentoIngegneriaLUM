@@ -143,7 +143,7 @@
           </div>
         </div>
         <!-- Botpress webchat renders here -->
-        <div id="webchat" style="height: 500px; width: 100%;"></div>
+        <div id="bp-embedded-webchat" style="height: 500px; width: 100%; border-radius: 12px; overflow: hidden; position: relative;"></div>
       </div>
     </div>
   </section>
@@ -320,25 +320,24 @@
     </div>
   </footer>
 
-  <!-- ── Botpress Webchat (embedded inline) ─────────────── -->
-  
-<!DOCTYPE html>
-<html lang="it">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dipartimento di Ingegneria</title>
-
-  <link rel="stylesheet" href="styles.css">
-
-  <!-- Botpress embed code -->
+  <!-- ── Botpress Embed Script ──────────────────────────── -->
   <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
-  <script src="https://files.bpcontent.cloud/2024/11/07/09/20241107093152-C7HG1MHH.js" defer></script>
-</head>
-<body>
-  <!-- contenuto pagina -->
-  <div id="bp-embedded-webchat" style="height:500px;width:100%;"></div>
-</body>
-</html>
+  <script>
+    window.botpressWebChat.init({
+      configUrl: "https://files.bpcontent.cloud/2024/11/07/09/20241107093152-5L9JMNFR.json",
+      container: document.getElementById("bp-embedded-webchat"),
+      hideWidget: true,
+      disableAnimations: true,
+    });
+    window.botpressWebChat.onEvent(
+      function (event) {
+        if (event.type === 'LIFECYCLE.LOADED') {
+          window.botpressWebChat.sendEvent({ type: 'show' });
+        }
+      },
+      ['LIFECYCLE.LOADED']
+    );
+  </script>
+
 </body>
 </html>
