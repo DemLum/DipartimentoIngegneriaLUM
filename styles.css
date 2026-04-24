@@ -273,7 +273,7 @@ ul { list-style: none; }
   position: absolute;
   bottom: .1em; left: 0; right: 0;
   height: .1em;
-  background: var(--green-300);
+  /*background: var(--green-300);*/
   border-radius: 9999px;
 }
 
