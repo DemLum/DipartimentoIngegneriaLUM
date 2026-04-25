@@ -737,7 +737,7 @@ footer {
 /* ── My LUM Ribbon ─────────────────────────────────────────── */
 .mylum-ribbon {
   background: var(--green-800);
-  padding: .45rem 2rem;
+  padding: .75rem 2rem;
   position: sticky;
   top: 4.5rem;
   z-index: 99;
@@ -749,41 +749,44 @@ footer {
   margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: .75rem;
 }
 
-.mylum-label {
-  font-size: .75rem;
+.mylum-label-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .82rem;
   font-weight: 700;
   color: var(--green-300);
   text-transform: uppercase;
   letter-spacing: .07em;
   white-space: nowrap;
-  flex-shrink: 0;
+  padding: .45rem 1.1rem;
+  border: 2px solid var(--green-500);
+  border-radius: 2rem;
 }
 
-.mylum-links {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.mylum-links::-webkit-scrollbar { display: none; }
-
-.mylum-link {
-  display: flex;
+.mylum-btn {
+  display: inline-flex;
   align-items: center;
   gap: .4rem;
   font-size: .82rem;
   font-weight: 600;
-  color: rgba(255,255,255,.75);
+  color: rgba(255,255,255,.85);
   white-space: nowrap;
-  transition: color .18s;
-  padding: .35rem 0;
+  padding: .45rem 1.1rem;
+  border: 2px solid rgba(255,255,255,.25);
+  border-radius: 2rem;
+  transition: background .18s, border-color .18s, color .18s;
 }
-.mylum-link:hover { color: var(--green-300); }
+.mylum-btn:hover {
+  background: rgba(255,255,255,.12);
+  border-color: var(--green-300);
+  color: var(--green-300);
+}
 
 .mylum-icon { font-size: .9rem; }
 
@@ -969,7 +972,7 @@ section[id], div.stats-bar, footer {
 
 .modulistica-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.75rem;
 }
 
@@ -1184,6 +1187,4 @@ section[id], div.stats-bar, footer {
   .hero-counters { flex-direction: column; align-items: center; }
   .stats-inner { grid-template-columns: repeat(2, 1fr); }
   .hero-buttons { flex-direction: column; align-items: center; }
-
-  .mylum-label { display: none; }
 }
