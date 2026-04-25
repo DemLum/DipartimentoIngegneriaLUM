@@ -32,13 +32,34 @@
         </div>
       </a>
       <ul class="nav-links">
-        <li><a href="#chi-siamo">Chi Siamo</a></li>
+        <li><a href="#chi-siamo" onclick="event.preventDefault(); openPanel('panel-chi-siamo');">Chi Siamo</a></li>
         <li><a href="#corsi">Corsi</a></li>
         <li><a href="#ricerca">Ricerca</a></li>
         <li><a href="#assistente" class="nav-cta">Assistente Virtuale</a></li>
       </ul>
     </div>
   </nav>
+
+  <!-- ── My LUM Ribbon ─────────────────────────────────── -->
+  <div class="mylum-ribbon">
+    <div class="mylum-inner">
+      <span class="mylum-label">🎓 My LUM</span>
+      <div class="mylum-links">
+        <a href="https://mail.google.com/a/lum.it" target="_blank" rel="noopener" class="mylum-link">
+          <span class="mylum-icon">📧</span> Google Workspace
+        </a>
+        <a href="https://lum.esse3.cineca.it/Home.do" target="_blank" rel="noopener" class="mylum-link">
+          <span class="mylum-icon">📋</span> Esse3
+        </a>
+        <a href="https://easylum.lum.it/" target="_blank" rel="noopener" class="mylum-link">
+          <span class="mylum-icon">📅</span> EasyLUM
+        </a>
+        <a href="https://www.pagopa.gov.it/" target="_blank" rel="noopener" class="mylum-link">
+          <span class="mylum-icon">💳</span> PagoPA
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- ── Hero ───────────────────────────────────────────── -->
   <section class="hero" id="chi-siamo">
@@ -50,7 +71,7 @@
            innovazione tecnologica e una didattica di qualità riconosciuta a livello nazionale.</p>
         <div class="hero-buttons">
           <a href="#assistente" class="btn btn-primary">💬 Chatta con noi</a>
-          <a href="#corsi" class="btn btn-secondary">Scopri i Corsi</a>
+          <a href="#" onclick="event.preventDefault(); openModal('modal-corsi');" class="btn btn-secondary">Scopri i Corsi</a>
         </div>
         <div class="hero-counters">
           <div class="hero-counter">
@@ -125,7 +146,7 @@
             Opportunità di stage e tirocinio
           </li>
         </ul>
-        <a href="#corsi" class="btn btn-green">Scopri i Corsi →</a>
+        <a href="#" onclick="event.preventDefault(); openModal('modal-corsi');" class="btn btn-green">Scopri i Corsi →</a>
       </div>
 
       <div class="webchat-card">
@@ -200,6 +221,37 @@
     </div>
   </section>
 
+  <!-- ── Modulistica Quick-Action ──────────────────────── -->
+  <section class="modulistica-section" id="modulistica">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Modulistica</span>
+        <h2>Documenti e Moduli</h2>
+        <p>Scarica rapidamente i moduli più richiesti dalla segreteria studenti.</p>
+      </div>
+      <div class="modulistica-grid">
+        <div class="modulo-card">
+          <div class="modulo-icon">📝</div>
+          <h4>Rinuncia agli Studi</h4>
+          <p>Modulo ufficiale per la rinuncia formale all'iscrizione universitaria.</p>
+          <a href="https://www.lum.it/segreteria-studenti/" target="_blank" rel="noopener" class="btn btn-outline">⬇ Scarica Modulo</a>
+        </div>
+        <div class="modulo-card">
+          <div class="modulo-icon">🪪</div>
+          <h4>Attivazione Carriera Alias</h4>
+          <p>Richiesta per l'attivazione della carriera alias per studenti transgender.</p>
+          <a href="https://www.lum.it/segreteria-studenti/" target="_blank" rel="noopener" class="btn btn-outline">⬇ Scarica Modulo</a>
+        </div>
+        <div class="modulo-card">
+          <div class="modulo-icon">💰</div>
+          <h4>Esonero Tasse</h4>
+          <p>Modulo di richiesta per esonero totale o parziale dalla contribuzione studentesca.</p>
+          <a href="https://www.lum.it/segreteria-studenti/" target="_blank" rel="noopener" class="btn btn-outline">⬇ Scarica Modulo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── Stats Bar ──────────────────────────────────────── -->
   <div class="stats-bar">
     <div class="stats-inner">
@@ -222,6 +274,52 @@
     </div>
   </div>
 
+  <!-- ── News & Events Section ─────────────────────────── -->
+  <section class="news-section" id="news">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-badge">News &amp; Eventi</span>
+        <h2>Vita del Dipartimento</h2>
+        <p>Workshop, open lecture e progetti che dimostrano la vivacità del nostro percorso accademico.</p>
+      </div>
+      <div class="news-grid">
+        <div class="news-card">
+          <div class="news-card-header">
+            <span class="news-badge">Workshop</span>
+            <span class="news-date">Aprile 2026</span>
+          </div>
+          <div class="news-card-body">
+            <h4>FameLab Bari – Comunicare la Scienza</h4>
+            <p>I nostri studenti partecipano alla competizione internazionale FameLab, imparando a comunicare la ricerca ingegneristica in soli 3 minuti.</p>
+            <a href="https://www.lum.it/eventi/" target="_blank" rel="noopener" class="news-link">Scopri l'evento →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="news-card-header">
+            <span class="news-badge">Open Lecture</span>
+            <span class="news-date">Marzo 2026</span>
+          </div>
+          <div class="news-card-body">
+            <h4>Digital Human &amp; AI – Il Futuro dell'Interazione</h4>
+            <p>Conferenza aperta sulle frontiere dell'Intelligenza Artificiale applicata alla simulazione di comportamenti umani digitali e alla transizione 4.0.</p>
+            <a href="https://www.lum.it/eventi/" target="_blank" rel="noopener" class="news-link">Scopri l'evento →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="news-card-header">
+            <span class="news-badge">Progetto</span>
+            <span class="news-date">2025–2026</span>
+          </div>
+          <div class="news-card-body">
+            <h4>Smart District 4.0 – LUM Enterprise</h4>
+            <p>Case study in Ingegneria Gestionale: il progetto Smart District 4.0 connette studenti e imprese del territorio in un laboratorio di innovazione industriale.</p>
+            <a href="https://www.lum.it/strutture-di-ricerca/" target="_blank" rel="noopener" class="news-link">Scopri il progetto →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── Research Section ───────────────────────────────── -->
   <section class="research-section" id="ricerca">
     <div class="research-grid">
@@ -241,7 +339,7 @@
           <span class="tag">Machine Learning</span>
           <span class="tag">Energie Rinnovabili</span>
         </div>
-        <a href="#assistente" class="btn btn-primary">Scopri di più</a>
+        <a href="https://www.lum.it/strutture-di-ricerca/" target="_blank" rel="noopener" class="btn btn-primary">Scopri di più</a>
       </div>
 
       <div class="research-cards">
@@ -312,6 +410,11 @@
             <li>Puglia, Italia</li>
             <li><a href="#assistente">Scrivici tramite il bot →</a></li>
           </ul>
+          <div class="segreteria-hours">
+            <strong>Orari Segreteria</strong><br>
+            Lun – Ven: 9:00 – 13:00<br>
+            Mar – Gio: 15:00 – 18:00
+          </div>
         </div>
       </div>
 
@@ -321,6 +424,63 @@
       </div>
     </div>
   </footer>
+
+  <!-- ── Overlay ────────────────────────────────────────── -->
+  <div class="overlay" id="overlay" onclick="closeAll()"></div>
+
+  <!-- ── Off-canvas: Chi Siamo ──────────────────────────── -->
+  <aside class="offcanvas" id="panel-chi-siamo" role="dialog" aria-label="Chi Siamo">
+    <div class="offcanvas-header">
+      <h3>Il Dipartimento</h3>
+      <button class="close-btn" onclick="closeAll()" aria-label="Chiudi pannello">✕</button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="offcanvas-director">
+        <div class="offcanvas-director-icon">👨‍🏫</div>
+        <div>
+          <h5>Prof. Giovanni Schiuma</h5>
+          <p>Direttore del Dipartimento di Ingegneria</p>
+        </div>
+      </div>
+      <p>Il <strong>Dipartimento di Ingegneria</strong> dell'Università LUM Giuseppe Degennaro è un centro di eccellenza che forma ingegneri capaci di affrontare le sfide tecnologiche e gestionali del XXI secolo.</p>
+      <p>Il percorso formativo integra rigore scientifico, innovazione digitale e una forte connessione con il tessuto imprenditoriale del territorio, con particolare attenzione all'<strong>Ingegneria Informatica per la Transizione Digitale</strong>.</p>
+      <h4>🎯 Missione</h4>
+      <p>Formare professionisti con solide competenze tecniche e manageriali, pronti a guidare processi di trasformazione digitale e sostenibile nelle imprese e nelle istituzioni.</p>
+      <h4>🔬 Strutture di Ricerca</h4>
+      <p>Il Dipartimento ospita osservatori e laboratori attivi tra cui l'<strong>Osservatorio sulle Crisi d'Impresa</strong> e l'<strong>Osservatorio sul Digitale</strong>, con collaborazioni nazionali e internazionali.</p>
+      <h4>🌍 Programma Erasmus+</h4>
+      <p>Accordi con università partner in tutta Europa per periodi di studio e tirocinio all'estero, aperti a tutti gli studenti iscritti.</p>
+      <a href="https://www.lum.it/dipartimento-di-ingegneria/" target="_blank" rel="noopener" class="btn btn-green" style="margin-top:.5rem;">Visita il sito ufficiale →</a>
+    </div>
+  </aside>
+
+  <!-- ── Modal: Offerta Formativa PDF ───────────────────── -->
+  <div class="modal" id="modal-corsi" role="dialog" aria-label="Offerta Formativa 2025/26">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3>📚 Offerta Formativa 2025/26</h3>
+        <button class="close-btn" onclick="closeAll()" aria-label="Chiudi modale">✕</button>
+      </div>
+      <div class="modal-body">
+        <!-- Google Docs Viewer: fallback "Scarica PDF" shown if loading fails -->
+        <iframe
+          src="https://docs.google.com/viewer?url=https://www.lum.it/wp-content/uploads/2025/07/OF-25-26-web.pdf&embedded=true"
+          title="Offerta Formativa LUM 2025/26"
+          loading="lazy"
+        ></iframe>
+      </div>
+      <div class="modal-footer">
+        <p class="modal-note">Se il documento non si carica, scaricalo direttamente.</p>
+        <a href="https://www.lum.it/wp-content/uploads/2025/07/OF-25-26-web.pdf" target="_blank" rel="noopener" class="btn btn-green">⬇ Scarica PDF</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Floating: LUM Help ─────────────────────────────── -->
+  <a href="https://sites.google.com/lum.it/lumhelp/home" target="_blank" rel="noopener"
+     class="lum-help-float" title="LUM Help – Supporto tecnico e FAQ">
+    ❓ LUM Help
+  </a>
 
   <!-- ── Botpress Embed Script ──────────────────────────── -->
   <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
@@ -340,6 +500,30 @@
       },
       ['LIFECYCLE.LOADED']
     );
+  </script>
+
+  <!-- ── UI Interactions ───────────────────────────────── -->
+  <script>
+    function openPanel(id) {
+      document.getElementById('overlay').classList.add('active');
+      document.getElementById(id).classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function openModal(id) {
+      document.getElementById('overlay').classList.add('active');
+      document.getElementById(id).classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeAll() {
+      document.getElementById('overlay').classList.remove('active');
+      document.querySelectorAll('.offcanvas, .modal').forEach(function(el) {
+        el.classList.remove('active');
+      });
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeAll();
+    });
   </script>
 
 </body>
