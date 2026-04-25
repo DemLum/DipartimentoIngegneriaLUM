@@ -754,8 +754,11 @@ footer {
   flex-wrap: wrap;
 }
 
-.mylum-label {
-  font-size: .75rem;
+.mylum-label-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .82rem;
   font-weight: 700;
   color: var(--green-300);
   text-transform: uppercase;
@@ -772,8 +775,8 @@ footer {
   justify-content: center;
 }
 
-.mylum-link {
-  display: flex;
+.mylum-btn {
+  display: inline-flex;
   align-items: center;
   gap: .4rem;
   font-size: .82rem;
@@ -783,7 +786,6 @@ footer {
   transition: color .18s, background .18s, transform .18s;
   padding: .35rem 0;
 }
-.mylum-link:hover { color: var(--green-300); }
 
 .mylum-btn {
   background: rgba(255,255,255,.12);
@@ -1197,6 +1199,4 @@ section[id], div.stats-bar, footer {
   .hero-counters { flex-direction: column; align-items: center; }
   .stats-inner { grid-template-columns: repeat(2, 1fr); }
   .hero-buttons { flex-direction: column; align-items: center; }
-
-  .mylum-label { display: none; }
 }
