@@ -240,7 +240,7 @@
           <div class="modulo-icon">📋</div>
           <h4>Brochure Dipartimento</h4>
           <p>Scarica la brochure ufficiale del Dipartimento di Ingegneria LUM.</p>
-          <a href="https://www.lum.it/62469" target="_blank" rel="noopener" class="btn btn-outline">⬇ Scarica Brochure</a>
+          <a href="https://www.lum.it/offerte-formative/" target="_blank" rel="noopener" class="btn btn-outline">⬇ Scarica Brochure</a>
         </div>
         <div class="modulo-card">
           <div class="modulo-icon">📚</div>
@@ -325,7 +325,7 @@
           <ul class="doc-box-list">
             <li>🔬 <a href="https://www.lum.it/eventi/?filter_cat=7699" target="_blank" rel="noopener">Seminari e Workshop</a><– 2 CFU (FameLab, Open Lecture Digital Human &amp; AI)</li>
             <li>🏭 <a href="https://www.lum.it/job-opportunities/" target="_blank" rel="noopener">Tirocini in Azienda</a> – 6/15 CFU (magistrale)</li>
-            <li>🧪 <a href=https://www.lum.it/lumascolta/ target="_blank" rel="noopener">Laboratori Specializzati</a> – LumAscolta - L.O.V. Lab e Teaching Center (TCLLL)</li> https://www.lum.it/lumascolta/
+            <li>🧪 <a href=https://www.lum.it/lumascolta/ target="_blank" rel="noopener">Laboratori Specializzati</a> – LumAscolta - L.O.V. Lab e Teaching Center (TCLLL)</li>
             <li>📰 <a href="https://www.lum.it/eventi/" target="_blank" rel="noopener">Bacheca News ed Eventi imminenti →</a></li>
           </ul>
         </div>
@@ -537,23 +537,23 @@
   </aside>
 
   <!-- ── Modal: Anteprima Documento ───────────────────── -->
-  <div class="modal" id="modal-corsi" role="dialog" aria-label="Anteprima documento">
+  <div class="modal" id="modal-corsi" role="dialog" aria-label="Anteprima link">
     <div class="modal-dialog">
       <div class="modal-header">
-        <h3 id="document-modal-title">📚 Anteprima documento</h3>
+        <h3 id="document-modal-title">🔗 Anteprima link</h3>
         <button class="close-btn" onclick="closeAll()" aria-label="Chiudi modale">✕</button>
       </div>
       <div class="modal-body">
         <iframe
           id="document-modal-frame"
           src="about:blank"
-          title="Anteprima documento"
+          title="Anteprima link"
           loading="lazy"
         ></iframe>
       </div>
       <div class="modal-footer">
-        <p class="modal-note" id="document-modal-note">Apri il documento nella finestra sovrapposta.</p>
-        <a href="https://www.lum.it/wp-content/uploads/2025/07/OF-25-26-web.pdf" target="_blank" rel="noopener" class="btn btn-green" id="document-modal-action">⬇ Scarica PDF</a>
+        <p class="modal-note" id="document-modal-note">Apri il link nella finestra sovrapposta.</p>
+        <a href="https://www.lum.it/wp-content/uploads/2025/07/OF-25-26-web.pdf" target="_blank" rel="noopener" data-modal-direct="true" class="btn btn-green" id="document-modal-action">Apri link</a>
       </div>
     </div>
   </div>
@@ -594,6 +594,39 @@
       return url;
     }
 
+    function getModalTitle(trigger) {
+      const explicitTitle = trigger.dataset.docTitle || trigger.getAttribute('aria-label') || trigger.getAttribute('title');
+      if (explicitTitle) {
+        return explicitTitle;
+      }
+
+      const containers = [
+        '.modulo-card',
+        '.doc-row',
+        '.feature-card',
+        '.news-card',
+        '.doc-box',
+        'li',
+        'section',
+        'article',
+        'aside',
+      ];
+
+      for (const selector of containers) {
+        const container = trigger.closest(selector);
+        if (!container) {
+          continue;
+        }
+
+        const heading = container.querySelector('h1, h2, h3, h4, h5, h6');
+        if (heading && heading.textContent.trim()) {
+          return heading.textContent.trim();
+        }
+      }
+
+      return trigger.textContent.replace(/\s+/g, ' ').replace(/\s*[→⬇↗]+\s*$/g, '').trim();
+    }
+
     function openPanel(id) {
       document.getElementById('overlay').classList.add('active');
       document.getElementById(id).classList.add('active');
@@ -606,12 +639,12 @@
     }
     function openDocumentModal(options) {
       const documentOptions = typeof options === 'string' ? { url: options } : options;
-      const documentTitle = documentOptions.title || 'Anteprima documento';
+      const documentTitle = documentOptions.title || 'Anteprima link';
       const documentUrl = documentOptions.url || '';
-      const documentAction = documentOptions.actionText || 'Apri documento';
+      const documentAction = documentOptions.actionText || 'Apri link';
 
-      document.getElementById('document-modal-title').textContent = '📚 ' + documentTitle;
-      document.getElementById('document-modal-note').textContent = documentOptions.note || 'Apri il documento nella finestra sovrapposta.';
+      document.getElementById('document-modal-title').textContent = '🔗 ' + documentTitle;
+      document.getElementById('document-modal-note').textContent = documentOptions.note || 'Apri il link nella finestra sovrapposta.';
       document.getElementById('document-modal-frame').setAttribute('src', getDocumentViewerUrl(documentUrl));
 
       const documentActionLink = document.getElementById('document-modal-action');
@@ -636,17 +669,24 @@
       if (e.key === 'Escape') closeAll();
     });
     document.addEventListener('click', function(e) {
-      const documentTrigger = e.target.closest('.js-document-modal');
-      if (!documentTrigger) {
+      const linkTrigger = e.target.closest('a[href]');
+      if (!linkTrigger || linkTrigger.closest('[data-modal-direct="true"]')) {
+        return;
+      }
+
+      const externalByClass = linkTrigger.classList.contains('js-document-modal');
+      const externalByTarget = linkTrigger.getAttribute('target') === '_blank';
+      const externalByHref = /^https?:\/\//i.test(linkTrigger.getAttribute('href') || '');
+
+      if (!externalByClass && !externalByTarget && !externalByHref) {
         return;
       }
 
       e.preventDefault();
       openDocumentModal({
-        url: documentTrigger.getAttribute('href'),
-        title: documentTrigger.dataset.docTitle,
-        actionText: documentTrigger.dataset.docAction,
-        note: documentTrigger.dataset.docNote,
+        url: linkTrigger.getAttribute('href'),
+        title: getModalTitle(linkTrigger),
+        note: linkTrigger.dataset.docNote,
       });
     });
   </script>
