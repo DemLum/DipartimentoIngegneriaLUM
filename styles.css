@@ -1301,7 +1301,6 @@ section[id], div.stats-bar, footer {
 
   .modulistica-grid { grid-template-columns: repeat(2, 1fr); }
   .news-grid { grid-template-columns: 1fr; }
-  .documenti-boxes { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
