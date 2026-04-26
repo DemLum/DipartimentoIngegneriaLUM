@@ -1211,6 +1211,26 @@ section[id], div.stats-bar, footer {
 .social-card-linkedin  { border-left: 4px solid #0077b5; }
 .social-card-youtube   { border-left: 4px solid #ff0000; }
 
+.cop-qr-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .35rem;
+  margin: .85rem 0 .9rem;
+}
+.cop-qr {
+  width: 110px;
+  height: 110px;
+  border-radius: .4rem;
+  border: 1.5px solid var(--border);
+  image-rendering: pixelated;
+}
+.cop-qr-hint {
+  font-size: .76rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
 @media (max-width: 768px) {
   .social-grid { grid-template-columns: 1fr; }
 }
