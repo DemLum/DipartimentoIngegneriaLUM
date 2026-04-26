@@ -31,6 +31,11 @@
           <span>Università Giuseppe Degennaro</span>
         </div>
       </a>
+      <button class="nav-toggle" aria-label="Apri menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <ul class="nav-links">
         <li><a href="#chi-siamo" onclick="event.preventDefault(); openPanel('panel-chi-siamo');">Chi Siamo</a></li>
         <li><a href="#corsi">Info Corsi</a></li>
@@ -666,6 +671,26 @@
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closeAll();
     });
+
+    /* ── Hamburger menu toggle ─────────────────────────────── */
+    (function () {
+      var navbar  = document.querySelector('.navbar');
+      var toggle  = document.querySelector('.nav-toggle');
+      if (!navbar || !toggle) { return; }
+
+      toggle.addEventListener('click', function () {
+        var isOpen = navbar.classList.toggle('nav-open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      /* Close menu when a nav link is clicked */
+      document.querySelectorAll('.nav-links a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          navbar.classList.remove('nav-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }());
     document.addEventListener('click', function(e) {
       const linkTrigger = e.target.closest('a[href]');
       if (!linkTrigger || linkTrigger.closest('[data-modal-direct="true"]')) {
