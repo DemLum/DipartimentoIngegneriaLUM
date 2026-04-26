@@ -150,6 +150,8 @@ ul { list-style: none; }
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
+  /* needed so the mobile dropdown is positioned relative to the navbar */
+  isolation: isolate;
 }
 
 .nav-inner {
@@ -213,6 +215,31 @@ ul { list-style: none; }
   transition: background .18s, transform .18s !important;
 }
 .nav-cta:hover { background: var(--green-700) !important; transform: translateY(-1px); }
+
+/* Hamburger button – hidden on desktop */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+.nav-toggle span {
+  display: block;
+  height: 2px;
+  background: var(--green-800);
+  border-radius: 2px;
+  transition: transform .22s ease, opacity .22s ease;
+}
+/* Animate hamburger → × when open */
+.navbar.nav-open .nav-toggle span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+.navbar.nav-open .nav-toggle span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.navbar.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 
 /* ── Hero ──────────────────────────────────────────────────── */
 .hero {
@@ -1118,7 +1145,97 @@ section[id], div.stats-bar, footer {
 }
 .news-link:hover { color: var(--green-700); }
 
-/* ── LUM Help Floating Button ──────────────────────────────── */
+/* ── Comunicazione Sociale ─────────────────────────────────── */
+.social-section {
+  padding: 6rem 2rem;
+  background: var(--bg-light);
+}
+
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.social-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  border: 1.5px solid var(--border);
+  background: var(--white);
+  transition: transform .2s, box-shadow .2s;
+  text-decoration: none;
+  color: inherit;
+}
+.social-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.social-card-icon {
+  font-size: 2.25rem;
+  line-height: 1;
+  flex-shrink: 0;
+  width: 3rem;
+  text-align: center;
+}
+
+.social-card-body h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: .5rem;
+  line-height: 1.3;
+}
+.social-card-body p {
+  font-size: .88rem;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: .9rem;
+}
+.social-cta {
+  font-size: .88rem;
+  font-weight: 700;
+  color: var(--green-600);
+  transition: color .18s;
+}
+.social-card:hover .social-cta { color: var(--green-700); }
+
+/* Accent left-border per canale */
+.social-card-cop       { border-left: 4px solid var(--green-600); }
+.social-card-instagram { border-left: 4px solid #e1306c; }
+.social-card-linkedin  { border-left: 4px solid #0077b5; }
+.social-card-youtube   { border-left: 4px solid #ff0000; }
+
+.cop-qr-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .35rem;
+  margin: .85rem 0 .9rem;
+}
+.cop-qr {
+  width: 110px;
+  height: 110px;
+  border-radius: .4rem;
+  border: 1.5px solid var(--border);
+  image-rendering: pixelated;
+}
+.cop-qr-hint {
+  font-size: .76rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .social-grid { grid-template-columns: 1fr; }
+}
+
+
 .lum-help-float {
   position: fixed;
   bottom: 2rem;
@@ -1304,7 +1421,39 @@ section[id], div.stats-bar, footer {
 }
 
 @media (max-width: 768px) {
-  .nav-links { display: none; }
+  /* Show hamburger button */
+  .nav-toggle { display: flex; }
+
+  /* Hide links by default; show as full-width dropdown when open */
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: rgba(255,255,255,.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: .75rem 1.5rem 1rem;
+    z-index: 99;
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+  }
+  .navbar.nav-open .nav-links { display: flex; }
+  .nav-links li { border-top: 1px solid var(--border); }
+  .nav-links li:first-child { border-top: none; }
+  .nav-links a {
+    display: block;
+    padding: .65rem 0;
+    font-size: 1rem;
+  }
+  .nav-cta {
+    margin-top: .25rem;
+    text-align: center;
+    display: block !important;
+  }
 
   .features-grid { grid-template-columns: 1fr; }
 

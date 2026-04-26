@@ -31,11 +31,17 @@
           <span>Università Giuseppe Degennaro</span>
         </div>
       </a>
+      <button class="nav-toggle" aria-label="Apri menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <ul class="nav-links">
         <li><a href="#chi-siamo" onclick="event.preventDefault(); openPanel('panel-chi-siamo');">Chi Siamo</a></li>
         <li><a href="#corsi">Info Corsi</a></li>
         <li><a href="#ricerca">Ricerca</a></li>
         <li><a href="#documenti">Info Utili</a></li>
+        <li><a href="#social">Comunità</a></li>
         <li><a href="#assistente" class="nav-cta">Assistente Virtuale</a></li>
       </ul>
     </div>
@@ -44,10 +50,8 @@
   <!-- ── My LUM Ribbon ─────────────────────────────────── -->
   <div class="mylum-ribbon">
     <div class="mylum-inner">
-      </a>
       <span class="mylum-label">🎓 Console:My LUM</span>
       <div class="mylum-links">
-        </a>
         <a href="https://mail.google.com/a/lum.it" target="_blank" rel="noopener" class="mylum-link mylum-btn">
           <span class="mylum-icon">📧</span> Google Workspace
         </a>
@@ -323,9 +327,9 @@
           </div>
           <p>Opportunità per acquisire CFU extra e competenze trasversali spendibili nel mondo del lavoro.</p>
           <ul class="doc-box-list">
-            <li>🔬 <a href="https://www.lum.it/eventi/?filter_cat=7699" target="_blank" rel="noopener">Seminari e Workshop</a><– 2 CFU (FameLab, Open Lecture Digital Human &amp; AI)</li>
+            <li>🔬 <a href="https://www.lum.it/eventi/?filter_cat=7699" target="_blank" rel="noopener">Seminari e Workshop</a> – 2 CFU (FameLab, Open Lecture Digital Human &amp; AI)</li>
             <li>🏭 <a href="https://www.lum.it/job-opportunities/" target="_blank" rel="noopener">Tirocini in Azienda</a> – 6/15 CFU (magistrale)</li>
-            <li>🧪 <a href=https://www.lum.it/lumascolta/ target="_blank" rel="noopener">Laboratori Specializzati</a> – LumAscolta - L.O.V. Lab e Teaching Center (TCLLL)</li>
+            <li>🧪 <a href="https://www.lum.it/lumascolta/" target="_blank" rel="noopener">Laboratori Specializzati</a> – LumAscolta - L.O.V. Lab e Teaching Center (TCLLL)</li>
             <li>📰 <a href="https://www.lum.it/eventi/" target="_blank" rel="noopener">Bacheca News ed Eventi imminenti →</a></li>
           </ul>
         </div>
@@ -456,6 +460,65 @@
     </div>
   </section>
 
+  <!-- ── Comunicazione Sociale ──────────────────────────── -->
+  <section class="social-section" id="social">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Comunicazione Sociale</span>
+        <h2>Resta connesso con la community</h2>
+        <p>Segui il Dipartimento sui nostri canali social e unisciti alla Community of Practice Ingegneria per condividere idee, risorse e opportunità.</p>
+      </div>
+
+      <div class="social-grid">
+
+        <!-- Community of Practice – WhatsApp -->
+        <a href="https://chat.whatsapp.com/JbW7mbFSCeEGToMg8Ty7Cj" class="social-card social-card-cop" target="_blank" rel="noopener">
+          <div class="social-card-icon">🤝</div>
+          <div class="social-card-body">
+            <h3>Community of Practice Ingegneria</h3>
+            <p>Uno spazio collaborativo su WhatsApp per studenti, docenti e professionisti. Condividi esperienze, partecipa a discussioni tecniche e costruisci la tua rete professionale.</p>
+            <div class="cop-qr-wrap">
+              <img src="qr-whatsapp.png" alt="QR Code – Gruppo WhatsApp Community of Practice Ingegneria LUM" class="cop-qr">
+              <span class="cop-qr-hint">Inquadra il QR con WhatsApp</span>
+            </div>
+            <span class="social-cta">Unisciti al gruppo →</span>
+          </div>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/dipartimento_ingegneria_lum/" class="social-card social-card-instagram" target="_blank" rel="noopener">
+          <div class="social-card-icon">📸</div>
+          <div class="social-card-body">
+            <h3>Instagram</h3>
+            <p>Foto, storie e aggiornamenti sulla vita universitaria, eventi del dipartimento e progetti degli studenti.</p>
+            <span class="social-cta">Seguici su Instagram →</span>
+          </div>
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/company/dipartimento-ingegneria-lum/" class="social-card social-card-linkedin" target="_blank" rel="noopener">
+          <div class="social-card-icon">💼</div>
+          <div class="social-card-body">
+            <h3>LinkedIn</h3>
+            <p>News accademiche, opportunità di carriera, alumni e collaborazioni con il mondo del lavoro e dell'industria.</p>
+            <span class="social-cta">Connettiti su LinkedIn →</span>
+          </div>
+        </a>
+
+        <!-- YouTube -->
+        <a href="https://www.youtube.com/@DipartimentoIngegneriaLUM" class="social-card social-card-youtube" target="_blank" rel="noopener">
+          <div class="social-card-icon">▶️</div>
+          <div class="social-card-body">
+            <h3>YouTube</h3>
+            <p>Lezioni, seminari, eventi e webinar registrati. Tutto il sapere del dipartimento a portata di click.</p>
+            <span class="social-cta">Guarda i video →</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ── Footer ─────────────────────────────────────────── -->
   <footer>
     <div class="footer-inner">
@@ -481,6 +544,7 @@
             <li><a href="#corsi">Corsi di Laurea</a></li>
             <li><a href="#ricerca">Ricerca</a></li>
             <li><a href="#documenti">Documenti</a></li>
+            <li><a href="#social">Comunità</a></li>
             <li><a href="#assistente">Assistente Virtuale</a></li>
           </ul>
         </div>
@@ -668,6 +732,26 @@
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closeAll();
     });
+
+    /* ── Hamburger menu toggle ─────────────────────────────── */
+    (function () {
+      var navbar  = document.querySelector('.navbar');
+      var toggle  = document.querySelector('.nav-toggle');
+      if (!navbar || !toggle) { return; }
+
+      toggle.addEventListener('click', function () {
+        var isOpen = navbar.classList.toggle('nav-open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      /* Close menu when a nav link is clicked */
+      document.querySelectorAll('.nav-links a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          navbar.classList.remove('nav-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }());
     document.addEventListener('click', function(e) {
       const linkTrigger = e.target.closest('a[href]');
       if (!linkTrigger || linkTrigger.closest('[data-modal-direct="true"]')) {
